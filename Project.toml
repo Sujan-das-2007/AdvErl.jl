@@ -1,0 +1,13 @@
+name = "Conduit"
+uuid = "e4c1f4d1-0443-4218-9426-de3605e6aea6"
+authors = ["Sujan Das <iamsujandas2007@gmail.com> and contributors"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.10.10"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
