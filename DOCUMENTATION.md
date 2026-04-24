@@ -1,9 +1,9 @@
-# jbeam Documentation
+# AdvErl Documentation
 
-Welcome to **jbeam**, a high-performance, fault-tolerant actor framework in Julia inspired by Erlang OTP. jbeam brings "let it crash" philosophy, high-concurrency memory safety, and robust supervision to the Julia ecosystem.
+Welcome to **AdvErl**, a high-performance, fault-tolerant actor framework in Julia inspired by Erlang OTP. AdvErl brings "let it crash" philosophy, high-concurrency memory safety, and robust supervision to the Julia ecosystem.
 
 ## Core Philosophy
-jbeam separates actor execution and state management, providing safety through a system of non-blocking channels and true supervision trees. Its architecture consists of multiple layers:
+AdvErl separates actor execution and state management, providing safety through a system of non-blocking channels and true supervision trees. Its architecture consists of multiple layers:
 
 - **Layer 1: High-Velocity Actor**
   Provides zero-copy memory pointer hand-off between actors and bounded, atomic mailboxes.
@@ -15,10 +15,10 @@ jbeam separates actor execution and state management, providing safety through a
 ---
 
 ## 1. Buffers & Memory Safety
-jbeam implements `OwnedBuffer` to provide exclusive ownership semantics to actors over chunks of memory. This ensures zero-copy message passing with strict memory safety: only the actor possessing the token is allowed to mutate the memory.
+AdvErl implements `OwnedBuffer` to provide exclusive ownership semantics to actors over chunks of memory. This ensures zero-copy message passing with strict memory safety: only the actor possessing the token is allowed to mutate the memory.
 
 ```julia
-using jbeam
+using AdvErl
 
 # Create a buffer of a specific size
 buf = OwnedBuffer(1024)
@@ -36,7 +36,7 @@ release!(buf)
 ---
 
 ## 2. Actors & Mailboxes
-Actors in jbeam are lightweight, green-threaded entities bound to an `AtomicMailbox`. Mailboxes are lock-free and designed for high throughput.
+Actors in AdvErl are lightweight, green-threaded entities bound to an `AtomicMailbox`. Mailboxes are lock-free and designed for high throughput.
 
 ### Spawning an Actor
 You can spawn an actor by passing a process loop function to the `Actor` constructor. The actor automatically begins execution on the scheduler.
@@ -56,7 +56,7 @@ actor_ref = Actor(actor_loop, inbox_size=100, name=:demo_actor)
 Actors communicate asynchronously by sending messages to mailboxes:
 
 ```julia
-send!(mailbox, "Hello jbeam!")
+send!(mailbox, "Hello AdvErl!")
 ```
 
 ---
@@ -97,7 +97,7 @@ send!(target_ref, "query")
 ---
 
 ## 5. Threading & Scheduling
-jbeam includes a `@fair` macro that automatically injects yield points into tight actor loops, preventing starvation of the core Julia thread pools.
+AdvErl includes a `@fair` macro that automatically injects yield points into tight actor loops, preventing starvation of the core Julia thread pools.
 
 ```julia
 actor_loop = (mb, state) -> begin

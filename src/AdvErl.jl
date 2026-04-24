@@ -1,4 +1,4 @@
-module Conduit 
+module AdvErl 
 
 include("Buffer.jl")
 include("Mailbox.jl")
@@ -23,4 +23,4 @@ export @fair
 export GlobalRegistry, register!, whereis, sync_registry!
 export print_dashboard
 
-end # module Conduit
+end # module AdvErl

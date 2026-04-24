@@ -11,7 +11,7 @@ Prints a high-tech terminal view of all known actors and their memory lengths.
 """
 function print_dashboard()
     println("\n" * "="^45)
-    println("      CONDUIT EXPERT OBSERVATORY (Grid View)      ")
+    println("      ADVERL EXPERT OBSERVATORY (Grid View)      ")
     println("="^45)
 
     lock(Registry.RegistryLock) do

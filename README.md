@@ -1,17 +1,17 @@
-# Conduit (Julia-BEAM)
+# AdvErl (Julia-BEAM)
 
 An ultra-high-performance, fault-tolerant Actor Framework modeled after the legendary Erlang/OTP BEAM VM, natively implemented in modern Julia.
 
-Conduit fuses twenty years of distributed systems theory (supervision trees, location-transparent registries, message-passing) with the modern raw power of Julia's zero-copy memory capabilities, atomic primitives, and high-performance threading.
+AdvErl fuses twenty years of distributed systems theory (supervision trees, location-transparent registries, message-passing) with the modern raw power of Julia's zero-copy memory capabilities, atomic primitives, and high-performance threading.
 
-## Why Conduit?
+## Why AdvErl?
 
 When building mission-critical pipelines—from satellite telemetry processing engines to HFT platforms—you need two things that often conflict:
 
 1. **Lethal Performance:** Zero-copy transfers and lock-free execution to process millions of ops/sec.
 2. **Indestructible Reliability:** Systems should crash beautifully and recover automatically without losing throughput. 
 
-Conduit delivers both.
+AdvErl delivers both.
 
 ---
 
@@ -19,12 +19,12 @@ Conduit delivers both.
 
 ### 1. High-Velocity Actors (Zero-Copy)
 
-Actors in Conduit communicate with extreme speed. Mailboxes have been upgraded to custom `AtomicMailbox` implementations running lock-free, circular ring buffers powered by base Julia `Threads.Atomic`.
+Actors in AdvErl communicate with extreme speed. Mailboxes have been upgraded to custom `AtomicMailbox` implementations running lock-free, circular ring buffers powered by base Julia `Threads.Atomic`.
 
 Large payload swaps leverage **Zero-Copy Memory Ownership**, allowing pointers (e.g. Gigabytes of image arrays or matrix data) to be swapped between tasks in O(1) time semantics without duplicating data.
 
 ```julia
-using Conduit
+using AdvErl
 
 # Create a high-throughput actor
 actor = Actor(inbox_size=4096, name=:satellite_ingest) do inbox
@@ -37,7 +37,7 @@ end
 
 ### 2. The Supervision Roll-Cage
 
-Code crashes. Hardware fails. Hardware resources (like GPU/Network sockets) leak. Conduit addresses this via formal Supervision with robust **Resource Cleanup Hooks**.
+Code crashes. Hardware fails. Hardware resources (like GPU/Network sockets) leak. AdvErl addresses this via formal Supervision with robust **Resource Cleanup Hooks**.
 
 **Supervision Strategies:**
 
@@ -89,4 +89,4 @@ See the `/examples` directory for demonstrations such as `legacy_killer_demo.jl`
 
 *MIT Licensed.*
 
-# Conduit.jl
+# AdvErl.jl

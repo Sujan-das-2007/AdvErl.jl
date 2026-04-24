@@ -1,15 +1,15 @@
 using Test
-using Conduit
+using AdvErl
 
-@testset "Conduit.jl" begin
+@testset "AdvErl.jl" begin
     # Test that the module loads and exports are available
-    @test isdefined(Conduit, :Actor)
-    @test isdefined(Conduit, :send!)
-    @test isdefined(Conduit, :receive!)
-    @test isdefined(Conduit, :Supervisor)
-    @test isdefined(Conduit, :supervise)
-    @test isdefined(Conduit, :OwnedBuffer)
-    @test isdefined(Conduit, :GlobalRegistry)
+    @test isdefined(AdvErl, :Actor)
+    @test isdefined(AdvErl, :send!)
+    @test isdefined(AdvErl, :receive!)
+    @test isdefined(AdvErl, :Supervisor)
+    @test isdefined(AdvErl, :supervise)
+    @test isdefined(AdvErl, :OwnedBuffer)
+    @test isdefined(AdvErl, :GlobalRegistry)
 
     # Basic test for Buffer
     buf = OwnedBuffer(zeros(Int, 10))

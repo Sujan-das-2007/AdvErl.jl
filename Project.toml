@@ -1,5 +1,5 @@
-name = "Conduit"
-uuid = "87589b12-8815-4343-ad11-7fd8f88716e3"
+name = "AdvErl"
+uuid = "dde1bd1d-599b-48f2-9a33-c620c8659a43"
 authors = ["Sujan Das <dsujan2007@gmail.com> and contributors"]
 version = "0.1.0"
 
